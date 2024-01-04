@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": "bilibili-embedded-player",
 	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": "Obsidian Bilibili 嵌入式播放器插件",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",

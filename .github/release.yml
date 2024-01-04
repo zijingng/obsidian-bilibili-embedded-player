@@ -6,7 +6,7 @@ on:
       - "*"
 
 env:
-  PLUGIN_NAME: obsidian-auto-link-title
+  PLUGIN_NAME: bilibili-embedded-player
 
 jobs:
   build:
