@@ -1,9 +1,9 @@
 {
 	"id": "bilibili-embedded-player",
-	"name": "Bilibili 嵌入式播放器",
+	"name": "Bilibili Embedded Player",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "支持将 Bilibili 链接转换为嵌入式播放器",
+	"description": "This plugin automatically convert Bilibili video links to embedded players.",
 	"author": "Zijing Ng",
 	"isDesktopOnly": false
 }
