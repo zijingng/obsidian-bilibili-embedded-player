@@ -52,19 +52,16 @@ export default class PlayerPlugin extends Plugin {
 
 	convertUrlToPlayer(editor: Editor): void {
 		let selectedText = (EditorExtensions.getSelectedText(editor) || "").trim();
-		console.log(selectedText);
 
 		let bvidRegex = /(?<=\/video\/)[a-zA-z0-9]+/gi;
 		let match = selectedText.match(bvidRegex);
 		if (match === null) return;
-		console.log(match[0]);
 		let bvid = match[0];
 
 		let p = "1";
 		let pRegex = /(?<=\?p\=)[0-9]+/gi;
 		match = selectedText.match(pRegex);
 		if (match !== null) p = match[0];
-		console.log(p);
 
 		let danmaku = this.settings.enableDanmaku ? "1" : "0";
 		let autoplay = this.settings.enableAutoPlay ? "1" : "0";
@@ -80,6 +77,7 @@ export default class PlayerPlugin extends Plugin {
 			return;
 		}
 	
+		if (clipboard.clipboardData === null) return;
 		let clipboardText = clipboard.clipboardData.getData("text/plain");
 		if (clipboardText === null || clipboardText === "") return;
 		
@@ -90,7 +88,6 @@ export default class PlayerPlugin extends Plugin {
 		let bvidRegex = /(?<=\/video\/)[a-zA-z0-9]+/gi;
 		let match = clipboardText.match(bvidRegex);
 		if (match === null) return;
-		console.log(match[0]);
 		let bvid = match[0];
 
 		// We've decided to handle the paste, stop propagation to the default handler.
@@ -101,7 +98,6 @@ export default class PlayerPlugin extends Plugin {
 		let pRegex = /(?<=\?p\=)[0-9]+/gi;
 		match = clipboardText.match(pRegex);
 		if (match !== null) p = match[0];
-		console.log(p);
 
 		let danmaku = this.settings.enableDanmaku ? "1" : "0";
 		let autoplay = this.settings.enableAutoPlay ? "1" : "0";

@@ -15,6 +15,7 @@ export class EditorExtensions {
   }
 
   private static cursorWithinBoundaries(cursor: EditorPosition, match: RegExpMatchArray): boolean {
+    if (match.index === undefined) return false;
     let startIndex = match.index;
     let endIndex = match.index + match[0].length;
 
@@ -35,6 +36,10 @@ export class EditorExtensions {
 
     for (let match of linksInLine) {
       if (this.cursorWithinBoundaries(cursor, match)) {
+        if (match.index == undefined) return {
+          start: cursor,
+          end: cursor,
+        };
         return {
           start: { line: cursor.line, ch: match.index },
           end: { line: cursor.line, ch: match.index + match[0].length },
@@ -48,6 +53,10 @@ export class EditorExtensions {
 
     for (let match of urlsInLine) {
       if (this.cursorWithinBoundaries(cursor, match)) {
+        if (match.index == undefined) return {
+          start: cursor,
+          end: cursor,
+        };
         return {
           start: { line: cursor.line, ch: match.index },
           end: { line: cursor.line, ch: match.index + match[0].length },
